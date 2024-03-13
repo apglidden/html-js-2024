@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Week 9 Assignment</title>
+<style type="text/css">
+	.border{border:1px solid black;}
+</style>
+</head>
+
+<body>
+</body>
+
+<script type="text/javascript">
+	//Use this Array of objects to complete the assignment.
+	var people =[
+		{first:"Jason", last:"Vorhees", credit:"Friday the 13th"},
+		{first:"Freddy", last:"Krueger", credit:"A Nightmare on Elm Street" },
+		{first:"Roger", last:"Rabbit", credit:"Who Framed Roger Rabbit" },
+		{first:"Kevin", last:"McCallister", credit:"Home Alone" },
+		{first:"Godzilla", last:"King of The Monsters", credit:"Godzilla" },
+		{first:"Buzz", last:"Lightyear", credit:"Toy Story" },
+		{first:"Marion", last:"Cobretti", credit:"Cobra" }
+	]
+
+  // Query Select the <body> tag and store it in a variable
+  var bodyTag = document.querySelector("body");
+
+  // Loop through the array of objects
+  for (var i = 0; i < people.length; i++) {
+    // Declare a local variable called tempDiv
+    var tempDiv;
+
+    // Create a new div using document.createElement() and store it in tempDiv
+    tempDiv = document.createElement("div");
+
+    // Apply an id to each div using the incrementor as the id
+    tempDiv.setAttribute("id", String(i));
+
+    // Use setAttribute() to give each div a class="border"
+    tempDiv.setAttribute("class", "border");
+
+    // Use a for/in loop within the for loop to add each property of the object into the div
+    for (var prop in people[i]) {
+      // Create a <p> element for each property in the object
+      var paragraph = document.createElement("p");
+
+      // Create a textNode for each <p> and use the value of each property for the text
+      var textNode = document.createTextNode(people[i][prop]);
+
+      // Append the text node to the p tag
+      paragraph.appendChild(textNode);
+
+      // Append the <p> tag to the <div>
+      tempDiv.appendChild(paragraph);
+    }
+
+    // Append the tempDiv to the body tag before completing the standard for loop
+    bodyTag.appendChild(tempDiv);
+  }
+</script>
+
+</html>
